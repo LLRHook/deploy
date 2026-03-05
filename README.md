@@ -52,7 +52,7 @@ Copy or symlink this directory into your Claude Code skills location, or referen
 
 ```bash
 # Clone the repo
-git clone https://github.com/vict0riv/deploy.git
+git clone https://github.com/LLRHook/deploy.git
 
 # Or add as a skill in your Claude Code configuration
 ```
