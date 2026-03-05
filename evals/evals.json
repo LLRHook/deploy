@@ -1,0 +1,23 @@
+{
+  "skill_name": "deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Next.js app with Prisma and Postgres. It's got Stripe checkout built in. Nothing is deployed yet - can you help me get this live?",
+      "expected_output": "Should detect Mode 1 (Fresh Deploy), Architecture A (Next.js Full-Stack), identify Prisma+Postgres requirement, ask for VERCEL_TOKEN and RAILWAY_API_TOKEN, outline the full provisioning plan (Railway Postgres + Vercel project + Stripe integration check), and confirm architecture with the user before proceeding.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I already have a Railway project with Postgres running for my app, and a Vercel project too, but I'm not sure everything is wired up correctly. The DATABASE_URL might not be set on Vercel. Can you check and fix it?",
+      "expected_output": "Should detect Mode 2 (Inspect & Integrate), ask for both tokens, then query Railway API to list projects and Vercel API to list projects so user can pick which ones. Then check Vercel env vars for DATABASE_URL, compare with Railway's actual connection string, and offer to fix any mismatches.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "deploy this again, it was working before but I pushed some changes",
+      "expected_output": "Should look for .deploy.json first (Mode 3 — Redeploy), and if found, read the existing config, validate all services are still healthy, then trigger redeployment on both Vercel and Railway. If .deploy.json is missing, should ask clarifying questions to determine current state.",
+      "files": []
+    }
+  ]
+}
